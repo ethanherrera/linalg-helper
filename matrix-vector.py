@@ -1,6 +1,7 @@
 import tkinter as tk
 import subprocess as sub
 
+# tkinter setup
 root = tk.Tk()
 root.title("Matrix x Vector")
 root.geometry("800x800")
@@ -11,6 +12,7 @@ root.resizable(True, True)
 dimensions_labels = []
 dimensions_entries = []
 dimensions_generate_button = []
+dimensions_quit_button = []
 
 def create_dimensions_state():
 
@@ -26,6 +28,10 @@ def create_dimensions_state():
         dimensions_generate_button.append(tk.Button(root, text="Generate Matrix",
                 command=lambda: create_input_state(dimensions_entries[0].get(), dimensions_entries[1].get())))
         dimensions_generate_button[0].pack()
+
+        dimensions_quit_button.append(tk.Button(root, text="Quit",
+                command=lambda: root.destroy()))
+        dimensions_quit_button[0].pack()
 
 create_dimensions_state()
 
@@ -80,8 +86,6 @@ def create_input_state(rows, columns):
         input_solve_button.append(tk.Button(root, text="Solve", command=lambda:create_output_state(input_matrix, input_vector)))
         input_solve_button[0].grid(row=row_after_reset, column=0)
 
-        return
-
 #output state
 output_labels = []
 output_vector = []
@@ -122,6 +126,7 @@ def create_output_state(user_matrix, user_vector):
         except:
                 reset_state()
 
+# other functions
 def reset_state():
 
         root_widgets = root.winfo_children()
@@ -131,6 +136,7 @@ def reset_state():
         dimensions_labels.clear()
         dimensions_entries.clear()
         dimensions_generate_button.clear()
+        dimensions_quit_button.clear()
         input_matrix.clear()
         input_vector.clear()
         input_reset_button.clear()
