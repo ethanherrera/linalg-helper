@@ -1,5 +1,4 @@
 import tkinter as tk
-import subprocess as sub
 
 # tkinter setup
 root = tk.Tk()
@@ -107,6 +106,8 @@ def create_output_state(user_matrix, user_vector):
 
                 for n in user_vector:
                         vector.append(float(n.get()))
+
+                # equivalent to solution_vector = np.dot(matrix, vector)
 
                 for n in matrix:
                         addends = []

@@ -14,6 +14,9 @@ title_label.pack()
 matrix_vector_button = tk.Button(root, text="Matrix x Vector Multiplication", command=lambda:start_file('matrix-vector.py'))
 matrix_vector_button.pack()
 
+matrix_matrix_button = tk.Button(root, text="Matrix x Matrix Multiplication", command=lambda:start_file('matrix-matrix.py'))
+matrix_matrix_button.pack()
+
 # functions
 def start_file(file_name):
         sub.run(['python3', file_name])
